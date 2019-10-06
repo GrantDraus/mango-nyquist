@@ -34,14 +34,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
 
-    case KC_LSFT:
-      shift_held = record->event.pressed;
-      return true;
-
-    case KC_RSFT:
-      shift_held = record->event.pressed;
-      return true;
-
     case DBLSLAS:
       if (record->event.pressed) {
         if (shift_held) {
@@ -56,7 +48,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         unregister_code(KC_BSLS);
         add_mods(saved_mods);
       }
-      return false;
+      return false;      
+
+    case KC_LSFT:
+      shift_held = record->event.pressed;
+      return true;
+
+    case KC_RSFT:
+      shift_held = record->event.pressed;
+      return true;
   }
   return true;
 };
